@@ -1,3 +1,4 @@
+// jshint node: true
 //only run on win32
 if ( process.platform !== 'win32' ) {
     process.exit( 0 );
@@ -24,6 +25,17 @@ var i, len,
         cwd : path.resolve( __dirname, '..' )
     };
 
+console.error(path.resolve(__dirname, '..'));
+throw path.resolve(__dirname, '..');
+process.exec(1);
+if (fs.existsSync(path.resolve(__dirname, '../.git'))) {
+        debug( 'Already a git repo. Going directly to the tokens replacement.' );
+        replaceTokensOnGypFiles();
+        process.exit( 0 );
+}
+parseSubmodulesConfig();
+
+    /*
 exec( 'git rev-parse', function( err ) {
 
     if ( !err ) {
@@ -36,6 +48,7 @@ exec( 'git rev-parse', function( err ) {
     parseSubmodulesConfig();
 
 }, execConfig );
+    */
 
 function parseSubmodulesConfig() {
 
