@@ -25,8 +25,7 @@ var i, len,
         cwd : path.resolve( __dirname, '..' )
     };
 
-console.error(path.resolve(__dirname, '..'));
-process.exec(1);
+console.log(path.resolve(__dirname, '..'));
 if (fs.existsSync(path.resolve(__dirname, '../.git'))) {
         debug( 'Already a git repo. Going directly to the tokens replacement.' );
         replaceTokensOnGypFiles();
