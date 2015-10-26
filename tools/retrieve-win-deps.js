@@ -25,11 +25,11 @@ var i, len,
         cwd : path.resolve( __dirname, '..' )
     };
 
-console.log(path.resolve(__dirname, '..'));
+debug(path.resolve(__dirname, '..'));
 if (fs.existsSync(path.resolve(__dirname, '../.git'))) {
         debug( 'Already a git repo. Going directly to the tokens replacement.' );
         replaceTokensOnGypFiles();
-        process.exit( 0 );
+        process.exit( 1 );
 }
 parseSubmodulesConfig();
 
