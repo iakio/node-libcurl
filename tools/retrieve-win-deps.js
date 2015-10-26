@@ -26,7 +26,6 @@ var i, len,
     };
 
 console.error(path.resolve(__dirname, '..'));
-throw path.resolve(__dirname, '..');
 process.exec(1);
 if (fs.existsSync(path.resolve(__dirname, '../.git'))) {
         debug( 'Already a git repo. Going directly to the tokens replacement.' );
